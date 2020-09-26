@@ -17,8 +17,7 @@ Optional arguments
 
 1. git clone https://github.com/maxwellreynolds/terminalcal/
 
-2. 
-''' pip install requirements.txt '''
+2. pip install requirements.txt
 
 3. Push "Enable the Google Calendar API in step 1 here:
 https://developers.google.com/calendar/quickstart/python
