@@ -5,6 +5,11 @@ Optional arguments
 -d: maximum number of days ahead to check (0 checks until end of today, 1 until end of tomorrow, etc.)
 -e: maximum events to show (default 10)
 
+
+![sample](sample.png)
+
+
+
 ## Installation
 
 1. git clone https://github.com/maxwellreynolds/terminalcal/
