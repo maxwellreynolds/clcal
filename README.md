@@ -1,8 +1,8 @@
 # terminalcal
 Show your google calendar events in the command line (including Zoom links from the event description)
 
-Optional arguments
--d: maximum number of days ahead to check (0 checks until end of today, 1 until end of tomorrow, etc.)
+Optional arguments  
+-d: maximum number of days ahead to check (0 checks until end of today, 1 until end of tomorrow, etc.)  
 -e: maximum events to show (default 10)
 
 
