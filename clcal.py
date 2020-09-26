@@ -25,11 +25,9 @@ parser.add_argument("--days", "-d", help="set to maximum number of days forward 
 args=parser.parse_args()
 
 if args.events:
-    print("Show {} events".format(args.events))
     num_events = args.events
 
 if args.days:
-    print("Show maximum {} days".format(args.days))
     max_days = args.days
 
 
