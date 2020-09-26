@@ -27,14 +27,13 @@ Save "credentials.json" in the local directory for this file
 4. python terminalcal.py
 (will be an authorization step the first time running)
 
-Recommended
 
 5. for easy access make an alias
 On Mac:
 
-nano ~/.bash_profile
-In the bash profile add the following line:
-alias gcal = python path/to/clcal.py
+nano ~/.bash_profile (or vi ~/.bash_profile)
+In the bash profile add the line:
+alias gcal = python <path/to/clcal.py>
 (restart terminal for alias to take effect)
 
 
@@ -43,6 +42,6 @@ Now simply type "gcal" into terminal
 
 Or:
 
-gcal -d 1
+gcal -e 5
 
-to show events for today and tomorrow
+to show the next 5 events on your calendar
