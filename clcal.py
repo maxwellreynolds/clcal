@@ -63,7 +63,7 @@ if not creds or not creds.valid:
         creds.refresh(Request())
     else:
         flow = InstalledAppFlow.from_client_secrets_file(
-            os.path.join(dir,'credentials.json', SCOPES))
+            os.path.join(dir,'credentials.json'), SCOPES)
         creds = flow.run_local_server(port=0)
     # Save the credentials for the next run
     with open(os.path.join(dir,'token.pickle'), 'wb') as token:
