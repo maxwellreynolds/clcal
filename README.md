@@ -29,19 +29,17 @@ Save "credentials.json" in the local directory for this file
 
 
 5. for easy access make an alias
+
 On Mac:
 
-nano ~/.bash_profile (or vi ~/.bash_profile)
-In the bash profile add the line:
+- nano ~/.bash_profile (or vi ~/.bash_profile)
+- In the bash profile add the line:
+
 alias gcal = python <path/to/clcal.py>
+
 (restart terminal for alias to take effect)
 
 
 
 Now simply type "gcal" into terminal
 
-Or:
-
-gcal -e 5
-
-to show the next 5 events on your calendar
