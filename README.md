@@ -6,7 +6,7 @@ Optional arguments
 -e: maximum events to show (default 10)
 
 
-![sample](sample.png)
+![sample](/sample.png)
 
 
 
@@ -25,6 +25,7 @@ Save "credentials.json" in the local directory for this file
 (will be an authorization step the first time running)
 
 Recommended
+
 5. for easy access make an alias
 On Mac:
 
