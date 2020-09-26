@@ -19,10 +19,12 @@ Optional arguments
 
 2. pip install requirements.txt
 
-3. Push "Enable the Google Calendar API in step 1 here:
+3. Push "Enable the Google Calendar API" in step 1 here:
 https://developers.google.com/calendar/quickstart/python
 
 Save "credentials.json" in the same directory as python script
+
+Note: any project name should work
 
 4. python terminalcal.py
 (will be an authorization step the first time running)
