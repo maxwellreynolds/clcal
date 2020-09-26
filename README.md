@@ -9,6 +9,9 @@ Optional arguments
 ![sample](img/sample.png)
 
 
+(Cmd + DoubleClick) to open link from terminal
+
+
 
 ## Installation
 
