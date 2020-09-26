@@ -6,7 +6,7 @@ Optional arguments
 -e: maximum events to show (default 10)
 
 
-![sample](/sample.png)
+![sample](/img/sample.png)
 
 
 
