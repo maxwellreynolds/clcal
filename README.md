@@ -9,7 +9,7 @@ Optional arguments
 ![sample](img/sample.png)
 
 
-(Cmd + DoubleClick) to open Zoom link from terminal
+On Mac: (Cmd + DoubleClick) to open Zoom link from terminal
 
 
 
