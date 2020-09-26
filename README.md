@@ -35,8 +35,7 @@ On Mac:
 - nano ~/.bash_profile (or vi ~/.bash_profile)
 - In the bash profile add the line:
 
-alias gcal = python <path/to/clcal.py>
-
+alias gcal = python <path/to/clcal.py>  
 (restart terminal for alias to take effect)
 
 
