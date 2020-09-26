@@ -17,12 +17,12 @@ Optional arguments
 
 1. git clone https://github.com/maxwellreynolds/terminalcal/
 
-2. pip install requirements.txt
+2. '''pip install requirements.txt'''
 
 3. Push "Enable the Google Calendar API in step 1 here:
 https://developers.google.com/calendar/quickstart/python
 
-Save "credentials.json" in the local directory for this file
+Save "credentials.json" in the same directory as python script
 
 4. python terminalcal.py
 (will be an authorization step the first time running)
