@@ -17,7 +17,7 @@ On Mac: (Cmd + DoubleClick) to open Zoom link from terminal
 
 1. git clone https://github.com/maxwellreynolds/terminalcal/
 
-2. pip install requirements.txt
+2. pip install -r requirements.txt
 
 3. Push "Enable the Google Calendar API" in step 1 here:
 https://developers.google.com/calendar/quickstart/python
