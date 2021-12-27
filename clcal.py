@@ -12,6 +12,8 @@ from google.auth.transport.requests import Request
 from termcolor import colored, cprint
 import argparse
 from os.path import join
+from tzlocal import get_localzone
+from util import is_short_date_format
 
 
 
@@ -22,13 +24,27 @@ max_days = None
 parser = argparse.ArgumentParser()
 parser.add_argument("--events", "-e", help="set to maximum number of events")
 parser.add_argument("--days", "-d", help="set to maximum number of days forward to show (today is 0)")
+parser.add_argument("--create", "-c", help="create an event", action='store_true')
+parser.add_argument("--startdate", "-sd", help="start datetime for created event. \nformat as yyyy-mm-dd or mm-dd")
+parser.add_argument("--starttime", "-st", help="start time. \nformat as hh:mm:ss or hh:mm")
+parser.add_argument("--enddate", "-ed", help="end datetime for created event. set to start time if empty")
+parser.add_argument("--endtime", "-et", help="end time")
+parser.add_argument("--summary", "-s", help="name of event")
+
 args=parser.parse_args()
+
+# print(args)
+
+
+
+
 
 if args.events:
     num_events = args.events
 
 if args.days:
     max_days = args.days
+
 
 
 dir=os.path.join(os.path.dirname(__file__))
@@ -42,7 +58,9 @@ colorDict={
 }
 
 # If modifying these scopes, delete the file token.pickle.
-SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+# SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+SCOPES = ['https://www.googleapis.com/auth/calendar']
+
 
 
 """Shows basic usage of the Google Calendar API.
@@ -77,7 +95,7 @@ if max_days is not None:
     max_datetime = datetime.datetime(max_date.year,max_date.month,max_date.day, 23, 59, 59, 464551)
     max_tstamp = float(max_datetime.strftime("%s"))
     max_utc = datetime.datetime.utcfromtimestamp(max_tstamp).isoformat()+'Z'
-    print(max_utc)
+    # print(max_utc)
     # exit()
     events_result = service.events().list(calendarId='primary', timeMin=now, timeMax = max_utc,
                                     maxResults=num_events, singleEvents=True,
@@ -107,3 +125,81 @@ for event in events:
         print(description)
     else:
         print(start[11:-6],'-',end[11:-6], event['summary'], description)
+
+if args.create:
+    print('create')
+    tz = get_localzone()
+    d = datetime.datetime.now(tz) #get utcoffset in current timezone
+    utc_offset = d.utcoffset().total_seconds()
+    utc_offset=int(utc_offset//3600)
+    neg=utc_offset < 0
+    abs_utc_offset=abs(utc_offset)
+    utc_str=('-' if neg else '+') + str(abs_utc_offset).zfill(2) + ':00'
+
+    assert(args.startdate)
+    sd=args.startdate
+    if sd.lower()=='today':
+        sd=str(datetime.date.today().year)+'-'+str(datetime.date.today().month)+'-'+str(datetime.date.today().day)
+    elif sd.lower()=='tomorrow':
+        tomorrow=datetime.date.today()+datetime.timedelta(days=1)
+        sd=str(tomorrow.year)+'-'+str(tomorrow.month)+'-'+str(tomorrow.day)
+    elif(is_short_date_format(sd)):
+        sd=str(datetime.date.today().year) + '-' + sd
+        print('fixed sd:',sd)
+
+
+    st=args.starttime
+    print('start date:',sd)
+    print('start time',st)
+    start_dt_string=sd+'T'+st
+    start_dt_string_with_offset=start_dt_string + utc_str
+    print('input startdtstr:',start_dt_string_with_offset)
+
+    # assert(args.enddate)
+    if args.enddate is None:
+        ed=sd
+    else:
+        ed=args.enddate
+    et=args.endtime
+    print('end date:',ed)
+    print('end time',et)
+    end_dt_string=ed+'T'+et
+    end_dt_string_with_offset=end_dt_string+utc_str
+
+    summary=args.summary
+    print('summary:',summary)
+
+    new_event={
+        'summary':summary,
+        'start':{'dateTime':start_dt_string_with_offset},
+        'end':{'dateTime':end_dt_string_with_offset}
+    }
+
+    event = service.events().insert(calendarId='primary', body=new_event).execute()  
+    print(event['summary'],event['status'], '\nfor',event['start']['dateTime'],event['start']['timeZone'],'\nto',
+    event['end']['dateTime'])
+
+# test_event={
+#   'summary': 'Google I/O 2015',
+#   'location': '800 Howard St., San Francisco, CA 94103',
+#   'description': 'A chance to hear more about Google\'s developer products.',
+#   'start': {
+#     'dateTime': '2021-12-28T09:00:00-05:00',
+#     'timeZone': 'America/New_York',
+#   },
+#   'end': {
+#     'dateTime': '2021-12-28T17:00:00-05:00',
+#     'timeZone': 'America/New_York',
+#   },
+#   'attendees': [
+#     {'email': 'lpage@example.com'},
+#     {'email': 'sbrin@example.com'},
+#   ],
+#   'reminders': {
+#     'useDefault': False,
+#     'overrides': [
+#       {'method': 'email', 'minutes': 24 * 60},
+#       {'method': 'popup', 'minutes': 10},
+#     ],
+#   },
+# }
