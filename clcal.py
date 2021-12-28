@@ -15,7 +15,8 @@ from termcolor import colored, cprint
 import argparse
 from os.path import join
 from tzlocal import get_localzone
-from util import is_short_date_format, is_short_time_format
+from util import is_short_date_format, is_short_time_format, remove_tags
+import re
 
 
 
@@ -120,7 +121,16 @@ if not args.create:
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
         end = event['end'].get('dateTime', event['start'].get('date'))
-        description = '\n' + event['description'].replace('<p>',' ').replace('</p>',' ').replace('&nbsp;',' ').replace('<br>',' ').replace('\n',' ') if 'description' in event and 'zoom' in event['description'] else ''
+        # pdb.et
+        if 'description' in event.keys():
+            # description = '\n' + event['description'].replace('<p>',' ').replace('</p>',' ').replace('&nbsp;',' ').replace('<br>',' ').replace('\n',' ') if 'description' in event and 'zoom' in event['description'] else ''
+            # description = remove_tags(description)
+            description = remove_tags(event['description']) if 'zoom' in event['description'] else ''
+            # description=re.search("https://zoom.us/j/.+?\b",event['description'])
+            # description=event['description']
+        else:
+            description=''
+        # pdb.set_trace()
         if start[:10]!= ev_date:
             ev_date = start[:10]
             cprint('\n'+ev_date,attrs=['bold'])

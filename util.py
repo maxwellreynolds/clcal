@@ -1,3 +1,4 @@
+import re
 # print('hello')
 def is_short_date_format(date_string):
     if len(date_string) != 5:
@@ -31,3 +32,7 @@ def is_short_time_format(time_string):
         # print('day out of range')
         return False
     return True
+
+TAG_RE = re.compile(r'<[^>]+>')
+def remove_tags(text):
+    return TAG_RE.sub('', text)
