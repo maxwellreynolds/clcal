@@ -81,5 +81,5 @@ alias gcal = python <path/to/clcal.py>
 
 
 
-Now simply type "gcal" into terminal to list your next events
+Now simply type "gcal" into terminal to list your next events or "gcal -c <args>..." to create an event
 
