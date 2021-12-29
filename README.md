@@ -14,13 +14,13 @@ On Mac: (Cmd + DoubleClick) to open Zoom link from terminal
 
 ## Creating events
 Arguments:
---create, -c: create event
---summary, -s: summary of event (aka name of event)
---description, -d: description of event
---startdate, sd: start date for created event. format as "today", "tomorrow", yyyy-mm-dd, or mm-dd (defaults to current year).
---enddate, ed (optional): same format as --startdate
---starttime, st: start time for event, format as hh:mm:ss or hh:mm 
---endtime (optional): end time for event, defaults to 1 hour after start if empty
+--create, -c: create event <br>
+--summary, -s: summary of event (aka name of event)<br>
+--description, -d: description of event<br>
+--startdate, sd: start date for created event. format as "today", "tomorrow", yyyy-mm-dd, or mm-dd (defaults to current year).<br>
+--enddate, ed (optional): same format as --startdate<br>
+--starttime, st: start time for event, format as hh:mm:ss or hh:mm <br>
+--endtime (optional): end time for event, defaults to 1 hour after start if empty<br>
 
 example:
 ```
