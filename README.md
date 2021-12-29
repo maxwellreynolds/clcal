@@ -19,15 +19,24 @@ On Mac: (Cmd + DoubleClick) to open Zoom link from terminal
 
 2. pip install -r requirements.txt
 
-3. Push "Enable the Google Calendar API" in step 1 here:
-https://developers.google.com/calendar/quickstart/python
+3. Follow oauth client id credentials step here 1-3 for "Web App" here. https://developers.google.com/workspace/guides/create-credentials?authuser=3#web-application.
 
-Save "credentials.json" in the same directory as python script
+In the Google Cloud Platform "Create OAuth Client ID" step, select Desktop App 
 
-Note: any project name should work
+Create name for project (any name should work)
 
-4. python terminalcal.py
+Select "Download JSON", and download credentials as "credentials.json" in the same directory as this repository.
+
+4. python clcal.py
 (will be an authorization step the first time running)
+Note: if you only want to give the app read priveleges (i.e. cannot create events, just shows them; change the line in clcal.py from 
+```
+SCOPES = ['https://www.googleapis.com/auth/calendar']
+```
+to 
+```
+SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+```
 
 
 5. for easy access make an alias
@@ -42,5 +51,5 @@ alias gcal = python <path/to/clcal.py>
 
 
 
-Now simply type "gcal" into terminal
+Now simply type "gcal" into terminal to list your next events
 
