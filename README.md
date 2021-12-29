@@ -1,6 +1,7 @@
 # clcal (command line calendar)
-Show your google calendar events in the command line (including Zoom links from the event description)
+Show your Google Calendar events in the command line (including Zoom links from the event description)
 
+## Showing upcoming events
 Optional arguments  
 -d: maximum number of days ahead to check (0 checks until end of today, 1 until end of tomorrow, etc.)  
 -e: maximum events to show (default 10)
@@ -10,6 +11,23 @@ Optional arguments
 
 
 On Mac: (Cmd + DoubleClick) to open Zoom link from terminal
+
+## Creating events
+Arguments:
+--create, -c: create event
+--summary, -s: summary of event (aka name of event)
+--description, -d: description of event
+--startdate, sd: start date for created event. format as "today", "tomorrow", yyyy-mm-dd, or mm-dd (defaults to current year).
+--enddate, ed (optional): same format as --startdate
+--starttime, st: start time for event, format as hh:mm:ss or hh:mm 
+--endtime (optional): end time for event, defaults to 1 hour after start if empty
+
+example:
+```
+gcal -c -s "test event" -sd tomorrow -st 13:00
+```
+
+
 
 
 
