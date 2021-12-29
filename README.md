@@ -25,7 +25,7 @@ git clone https://github.com/maxwellreynolds/terminalcal/
 pip install -r requirements.txt
 ```
 
-3. Follow oauth client id credentials step here 1-3 for "Web App" here. https://developers.google.com/workspace/guides/create-credentials?authuser=3#web-application.
+3. Follow oauth client id credentials steps 1-3 for "Web App" here. https://developers.google.com/workspace/guides/create-credentials?authuser=3#web-application.
 
 In the Google Cloud Platform "Create OAuth Client ID" step, select Desktop App 
 
