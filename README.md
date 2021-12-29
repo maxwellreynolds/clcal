@@ -17,7 +17,7 @@ On Mac: (Cmd + DoubleClick) to open Zoom link from terminal
 
 1. 
 ```
-git clone https://github.com/maxwellreynolds/terminalcal/
+git clone https://github.com/maxwellreynolds/clcal/
 ```
 
 2.
