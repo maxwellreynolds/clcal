@@ -13,7 +13,7 @@ Optional arguments
 On Mac: (Cmd + DoubleClick) to open Zoom link from terminal
 
 ## Creating events
-Arguments:
+Arguments: <br>
 --create, -c: create event <br>
 --summary, -s: summary of event (aka name of event)<br>
 --description, -d: description of event<br>
