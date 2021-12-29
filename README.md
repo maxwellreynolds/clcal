@@ -1,4 +1,4 @@
-# terminalcal
+# clcal (command line calendar)
 Show your google calendar events in the command line (including Zoom links from the event description)
 
 Optional arguments  
