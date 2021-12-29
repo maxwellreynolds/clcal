@@ -15,9 +15,15 @@ On Mac: (Cmd + DoubleClick) to open Zoom link from terminal
 
 ## Installation
 
-1. git clone https://github.com/maxwellreynolds/terminalcal/
+1. 
+```
+git clone https://github.com/maxwellreynolds/terminalcal/
+```
 
-2. pip install -r requirements.txt
+2.
+```
+pip install -r requirements.txt
+```
 
 3. Follow oauth client id credentials step here 1-3 for "Web App" here. https://developers.google.com/workspace/guides/create-credentials?authuser=3#web-application.
 
@@ -27,7 +33,10 @@ Create name for project (any name should work)
 
 Select "Download JSON", and download credentials as "credentials.json" in the same directory as this repository.
 
-4. python clcal.py
+4. 
+```
+python clcal.py
+```
 (will be an authorization step the first time running)
 Note: if you only want to give the app read priveleges (i.e. cannot create events, just shows them; change the line in clcal.py from 
 ```
